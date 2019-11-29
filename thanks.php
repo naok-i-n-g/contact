@@ -1,11 +1,15 @@
 <?php
-
+require_once('function.php');
 // 入力内容の取得
 $nickname = $_POST['nickname'];
 $email = $_POST['email'];
 $content = $_POST['content'];
 
 // 表示
+if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
+    header('Location: index.php');
+}
+
 
 
 ?>
@@ -17,7 +21,7 @@ $content = $_POST['content'];
 </head>
 <body>
     <h1>お問い合わせありがとうございました！</h1>
-    <p><?php echo $nickname; ?></p>
-    <p><?php echo $email; ?></p>
-    <p><?php echo $content; ?></p>
+    <p><?php echo h($nickname); ?></p>
+    <p><?php echo h($email); ?></p>
+    <p><?php echo h($content); ?></p>
 </html>
