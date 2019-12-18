@@ -7,7 +7,6 @@
 <body>
     <h1>お問い合わせ情報入力</h1>
     <form method="POST" action="check.php">
-    
         <div>
             ニックネーム<br>
             <input type="text" name="nickname">

@@ -46,11 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
         $email_result = 'メールアドレス：' . $email;
     }
 
-    if ($content == '') {
+    if ($contact == '') {
         $content_result =  'お問い合わせ内容が入力されていません。';
     } else {
         $content_result = 'お問い合わせ内容：' . $content;
     }
+   
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -62,15 +63,15 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
 
     <h1>入力内容確認</h1>
     <!-- 画面に表示 -->
-    <p><?php echo h($nickname_result); ?></p>
+    <p><?php echo h($name_result); ?></p>
     <!-- 攻撃対策 -->
     <p><?php echo h($email_result); ?></p>
-    <p><?php echo h($content_result); ?></p>
+    <p><?php echo h($message_result); ?></p>
 
     <form action="thanks.php" method="POST">
         <input type="hidden" name="nickname" value=" <?= h($nickname) ?>">
         <input type="hidden" name="email" value=" <?= h($email) ?>">
-        <input type="hidden" name="content" value=" <?= h($content) ?>">
+        <input type="hidden" name="message" value=" <?= h($message) ?>">
         <button type="button" onclick="history.back()">戻る</button>
         <?php if ($nickname != '' && $email != '' && $content != ''): ?>
                     <input type="submit" value="OK">
